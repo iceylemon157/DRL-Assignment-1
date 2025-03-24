@@ -18,7 +18,7 @@ def get_obstacle_state(obs):
     The obstacle state is a tuple containing the coordinates of the obstacles.
     """
     taxi_row, taxi_col, _,_,_,_,_,_,_,_, obstacle_north, obstacle_south, obstacle_east, obstacle_west, passenger_look, destination_look = obs
-    return (taxi_row, taxi_col, obstacle_north, obstacle_south, obstacle_east, obstacle_west)
+    return (obstacle_north, obstacle_south, obstacle_east, obstacle_west)
 
 
 def get_state_key(obs):
