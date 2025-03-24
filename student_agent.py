@@ -12,12 +12,21 @@ except FileNotFoundError:
     print(f"File {pickle_file} not found. Using random actions.")
     q_table = {}
 
+def get_obstacle_state(obs):
+    """
+    Extracts the obstacle state from the observation.
+    The obstacle state is a tuple containing the coordinates of the obstacles.
+    """
+    taxi_row, taxi_col, _,_,_,_,_,_,_,_, obstacle_north, obstacle_south, obstacle_east, obstacle_west, passenger_look, destination_look = obs
+    return (taxi_row, taxi_col, obstacle_north, obstacle_south, obstacle_east, obstacle_west)
+
+
 def get_state_key(obs):
     """
     Create a unique key for the state based on its attributes.
     This is useful for storing Q-values in a dictionary.
     """
-    return obs
+    return get_obstacle_state(obs)
 
 def get_action(obs):
     
